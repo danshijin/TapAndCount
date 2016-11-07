@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="js/mui.min.js"></script>
+		<link href="css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="utf-8">
+			mui.init({
+				gestureConfig: {
+					tap: true, //默认为true
+					doubletap: true, //默认为false
+					longtap: true, //默认为false
+					swipe: true, //默认为true
+					drag: true, //默认为true
+					hold: true, //默认为false，不监听
+					release: true //默认为false，不监听
+				}
+			});
+			
+			
+		</script>
+	</head>
+
+	<body id="myBody">
+		<div class="mui-slider">
+			<div class="mui-slider-group mui-slider-loop">
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#"><img src="img/headerSliderPicture/4.jpg" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="img/headerSliderPicture/1.jpg" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="img/headerSliderPicture/2.jpg" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="img/headerSliderPicture/3.jpg" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="img/headerSliderPicture/4.jpg" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="img/headerSliderPicture/5.jpg" /></a>
+				</div>
+				<div class="mui-slider-item">
+					<a href="#"><img src="img/headerSliderPicture/6.jpg" /></a>
+				</div>
+				<div class="mui-slider-item mui-slider-item-duplicate">
+					<a href="#"><img src="img/headerSliderPicture/1.jpg" /></a>
+				</div>
+			</div>
+		</div>
+		<div id="myCountButton" style="margin:0 auto; border:1px solid #aaa; border-radius: 100px; width: 200px; height: 200px; background-color: #66E6FF;"></div>
+	</body>
+	<script>
+		//获得slider插件对象
+		var gallery = mui('.mui-slider');
+		gallery.slider({
+			interval: 5000 //自动轮播周期，若为0则不自动播放，默认为0；
+		});
+		var currentTimes = localStorage.getItem("times");
+		if(isNaN(currentTimes)) {
+			currentTimes = 0;
+			localStorage.setItem("times", currentTimes);
+		}
+		document.body.onload = function() {
+			document.getElementById("myCountButton").addEventListener("hold", function() {
+				localStorage.setItem("times", currentTimes++);
+				mui.toast(currentTimes);
+				console.log(currentTimes);
+				document.getElementById("myCountButton").style.backgroundColor = "#66CCFF";
+			});
+
+			document.getElementById("myCountButton").addEventListener("release", function() {
+				document.getElementById("myCountButton").style.backgroundColor = "#66E6FF";
+			});
+		};
+	</script>
+
+</html>

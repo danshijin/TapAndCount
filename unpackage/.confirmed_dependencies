@@ -1,0 +1,18 @@
+{
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "img/count_ound_button-hi.png",
+      "img/count_Glossy-Circle-Button.png",
+      "img/waterFall.jpg",
+      "img/headerSliderPicture/6.jpg",
+      "img/headerSliderPicture/1.jpg",
+      "img/headerSliderPicture/5.jpg",
+      "img/headerSliderPicture/3.jpg",
+      "img/headerSliderPicture/2.jpg",
+      "img/headerSliderPicture/4.jpg"
+    ],
+    "refer": []
+  }
+}
